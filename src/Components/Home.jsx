@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Todos from './Todos'
+import FormTodo from './FormTodo'
 
 
-const DummyTodo = [
-    {
-        id: 1,
-        title: 'Learn React',
-        completed: false
-    },
-    {
-        id: 2,
-        title: 'Build an App',
-        completed: true
-    }
 
-]
 function Home() {
+  const [todo, setTodo] = useState([]);
+
+  const handleInputTodo = (todo) => {
+      console.log(todo);
+  };
+
   return (
-    <div>Todo Home</div>
+    
+    <div className='bg-gray-100 text-black h-screen flex flex-col justify-center items-center'>
+      <h1 className='text-center font-sans text-4xl text-bold my-4'>TODO APPS</h1>
+            <FormTodo onInputTodo={handleInputTodo}/>
+           <Todos todos={todo}/>
+    </div>
   )
 }
 
